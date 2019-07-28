@@ -9,22 +9,16 @@ import org.springframework.core.io.ClassPathResource;
 
 /**
  * Hello world!
- *
  */
-public class Main
-{
-    public static void main( String[] args )
-    {
+public class Main {
+    public static void main(String[] args) {
 
-//        XmlBeanFactory xmlBeanFactory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
-//        Movie movie= xmlBeanFactory.getBean("movie",Movie.class);
+        XmlBeanFactory xmlBeanFactory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
+        Movie movie= xmlBeanFactory.getBean("movie1",Movie.class);
 
-        ApplicationContext applicationcontext=new ClassPathXmlApplicationContext("beans.xml");
-        Movie movieA=(Movie)applicationcontext.getBean("movie1");
-        Movie movieB=(Movie)applicationcontext.getBean("movie2");
+        ApplicationContext applicationcontext = new ClassPathXmlApplicationContext("beans.xml");
+        Movie movieB = (Movie) applicationcontext.getBean("movie2");
 
-
-        System.out.println(movieA.getActor());
         System.out.println(movieB.getActor());
 
         /* Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException:
