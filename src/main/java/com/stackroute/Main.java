@@ -4,6 +4,7 @@ import com.stackroute.domain.Actor;
 import com.stackroute.domain.Movie;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
@@ -19,6 +20,9 @@ public class Main {
         ApplicationContext applicationcontext = new ClassPathXmlApplicationContext("beans.xml");
         Movie movieB = (Movie) applicationcontext.getBean("movie2");
 
+//        BeanLifecycleDemoBean beanLifecycleDemoBean=applicationcontext.getBean("beanlifecycledemobean",BeanLifecycleDemoBean.class);
+
+        ((AbstractApplicationContext)applicationcontext).registerShutdownHook();
         System.out.println(movieB.getActor());
 
         /* Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException:
