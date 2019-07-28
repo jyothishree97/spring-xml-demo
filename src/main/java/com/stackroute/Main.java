@@ -24,16 +24,16 @@ public class Main
         Movie movieB=(Movie)applicationcontext.getBean("movie2");
 
 
-        Actor var=applicationcontext.getBean("actor",Actor.class);
-        Actor var1=applicationcontext.getBean("actor1",Actor.class);
-        Actor var2=applicationcontext.getBean("actor2",Actor.class);
+        System.out.println(movieA.getActor());
+        System.out.println(movieB.getActor());
 
-        System.out.println(var.toString());
-        System.out.println(var1.toString());
-        System.out.println(var2.toString());
-
-        System.out.println(var==var1);
-        System.out.println(movieA==movieB);
+        /* Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException:
+         Error creating bean with name 'movie2' defined in class path resource [beans.xml]:
+         Unsatisfied dependency expressed through bean property 'actor';
+         nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException:
+          No qualifying bean of type 'com.stackroute.domain.Actor' available:
+         expected single matching bean but found 3: actor,actor1,actor2
+         */
 
     }
 }
